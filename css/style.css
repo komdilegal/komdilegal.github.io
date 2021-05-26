@@ -1,0 +1,255 @@
+/* Fonts */
+@font-face {
+  font-family: "permanent-marker";
+  src: url(../fonts/permanentmarker.woff) format("woff");
+}
+
+@font-face {
+  font-family: "koho";
+  src: url(../fonts/koho.woff) format("woff");
+}
+
+@font-face {
+  font-family: "texturina";
+  src: url(../fonts/texturina.woff) format("woff");
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url(../fonts/opensans.woff) format("woff");
+}
+
+/* Main Style */
+body {
+  font-family: "opensans", sans-serif;
+  background-color: #ddd;
+}
+
+img {
+  width: 100%;
+}
+
+.sub-heading {
+  font-family: "texturina", serif;
+  font-weight: bold;
+  word-spacing: 5px;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  background-color: #212529;
+  color: rgb(236, 236, 236);
+  padding: 20px 0 10px 0;
+  justify-content: space-around;
+}
+
+nav .logo {
+  font-family: "permanent-marker", cursive;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-evenly;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "koho", sans-serif;
+  color: rgb(236, 236, 236);
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: rgb(150, 150, 150);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0; /* supaya porosnya dipinggir */
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%; /* supaya porosnya dipinggir kanan */
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  /* tanda "~" artinya sibling */
+  /* jika input dicheck, cari span anak ke2 */
+  transform: rotate(45deg) translate(-1px, -1px);
+  background-color: rgb(236, 236, 236);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+  background-color: rgb(236, 236, 236);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* Home */
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding-top: 100px;
+  background-image: url(../img/home-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-color: #212529; */
+}
+
+.jumbotron h2,
+.jumbotron p {
+  color: white;
+  font-family: "koho", sans-serif;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+}
+
+.jumbotron .space1 {
+  height: 50px;
+}
+
+.jumbotron .space {
+  height: 280px;
+}
+
+/* Gallery */
+#gallery {
+  background-color: #fff;
+}
+
+#gallery img {
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+/* #gallery a {
+  text-decoration: none;
+}
+
+#gallery span {
+  display: block;
+  line-height: 214px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(200, 200, 200, 0.5);
+  height: 214px;
+  opacity: 0;
+  color: #000;
+  font-weight: bold;
+  font-family: "koho", sans-serif;
+  font-size: 1.5em;
+  transition: 0.3s;
+}
+
+#gallery .pic:hover span {
+  opacity: 1;
+  transform: scale(1);
+} */
+
+/* Card */
+.card {
+  border-radius: 10px;
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.card .card-footer a {
+  text-decoration: none;
+  color: black;
+  /* transition: 0.3s; */
+}
+
+.card .card-footer a:hover {
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background-color: #212529;
+  font-family: "koho", sans-serif;
+  padding-bottom: 20px;
+}
+
+/* Responsive Breakpoint */
+/* Tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+
+  .card img {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 75vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: -1;
+    background-color: #212529;
+    transform: translateY(-100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  nav ul.slide {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
